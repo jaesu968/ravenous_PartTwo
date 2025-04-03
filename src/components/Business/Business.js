@@ -1,36 +1,37 @@
 import React from "react";
 import styles from "./Business.module.css";
 
-const business = {
-  imageSrc:
-    "https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg",
-  name: "MarginOtto Pizzeria",
-  address: "1010 Paddington Way",
-  city: "Bordertown",
-  state: "NY",
-  zipCode: "10101",
-  category: "Italian",
-  rating: 4.5,
-  reviewCount: 90,
-};
-
-const Business = () => {
+// update the business component to use the business prop 
+const Business = ({ business }) => {
+  // destructure business props for cleaner JSX
+  const {
+    imageSrc,
+    name,
+    address,
+    city,
+    state,
+    zipCode,
+    category,
+    rating,
+    reviewCount,
+  } = business;
+  // return the business component with the passed props
   return (
     <div className={styles.Business}>
       <div className={styles.imageContainer}>
-        <img src={business.imageSrc} alt="" />
+        <img src={imageSrc} alt="" />
       </div>
-      <h2>{business.name}</h2>
+      <h2>{name}</h2>
       <div className={styles.BusinessInformation}>
         <div className={styles.BusinessAddress}>
-          <p>{business.address}</p>
-          <p>{business.city}</p>
-          <p>{`${business.state} ${business.zipCode}`}</p>
+          <p>{address}</p>
+          <p>{city}</p>
+          <p>{`${state} ${zipCode}`}</p>
         </div>
         <div className={styles.BusinessReviews}>
-          <h3>{business.category.toUpperCase()}</h3>
-          <h3 className={styles.rating}>{`${business.rating} stars`}</h3>
-          <p>{`${business.reviewCount} reviews`}</p>
+          <h3>{category.toUpperCase()}</h3>
+          <h3 className={styles.rating}>{`${rating} stars`}</h3>
+          <p>{`${reviewCount} reviews`}</p>
         </div>
       </div>
     </div>

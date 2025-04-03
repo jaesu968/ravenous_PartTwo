@@ -3,15 +3,15 @@ import styles from "./BusinessList.module.css";
 
 import Business from "../Business/Business";
 
-const BusinessList = () => {
+const BusinessList = ({ businesses }) => {
   return (
     <div className={styles.BusinessList}>
-      <Business />
-      <Business />
-      <Business />
-      <Business />
-      <Business />
-      <Business />
+      {businesses && businesses.map((business) => (
+        <Business 
+        key={business.name}
+        business={business} 
+        />
+      ))}
     </div>
   );
 };
