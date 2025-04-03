@@ -18,13 +18,7 @@ const business = {
   reviewCount: 90,
 };
 // create an array of businesses for testing 
-const businesses = [
-  business, 
-  business, 
-  business, 
-  business, 
-  business, 
-  business];
+const businesses = Array(6).fill(business);
 // create a function to fetch businesses from Yelp API
 const App = () => {
   return (
